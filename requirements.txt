@@ -1,0 +1,6 @@
+Flask
+Flask-SQLAlchemy
+flasgger
+psycopg2
+pytest
+unittest

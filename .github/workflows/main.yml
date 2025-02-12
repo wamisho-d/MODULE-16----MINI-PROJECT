@@ -1,35 +1,76 @@
-name: CI/CD Pipeline
+is set correctly in GitHub Secrets and handle the casename: CI/CD Pipeline
 
 on:
+  push:
+    branches:
+      where it might be empty in the workflow.
+
+### Updated - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest Workflow
+Here is the modified `.github/workflows
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+       /main.yml` to ensure the `DATABASE_URL` is correctly referenced uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+ and not empty:
+
+```yaml
+name: CI/CD Pipeline
+
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run unittest
+        run: |
+          pythonon:
   push:
     branches:
       - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+ -m unittest discover
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
+      - name: Run pytest
+        run: |
+          pytest
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on:    runs-on: ubuntu-latest
+    steps:
+      - name: ubuntu-latest
     needs: build
     steps:
       - name: Checkout code
+        uses: actions/checkout@v Checkout code
         uses: actions/checkout@v2
+
+     2
 
       - name: Deploy to Render
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           if [ -z "$DATABASE_URL" ]; then
-            echo "DATABASE_URL is not set"
-            exit 1
+            echo - name: Set up Python
+        uses: actions/setup-python "DATABASE_URL is not set"
+           @v2
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+ exit 1
           fi
           render deploy --service <SERVICE_NAME>

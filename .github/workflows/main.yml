@@ -15,14 +15,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up Python
-       /main.yml` to ensure the `DATABASE_URL` is correctly referenced uses: actions/setup-python@v2
         with:
           python-version: '3.8'
 
       - name: Install dependencies
  and not empty:
 
-```yaml
 name: CI/CD Pipeline
 
         run: |

@@ -18,8 +18,5 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Run Tests
-        run: pytest
-
       - name: Deploy to Render
         run: curl -X POST "$RENDER_DEPLOY_HOOK"

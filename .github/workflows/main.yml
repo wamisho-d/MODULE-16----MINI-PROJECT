@@ -28,5 +28,8 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
-          # Example command, replace with the actual Render CLI or API deployment command
+          if [ -z "$DATABASE_URL" ]; then
+            echo "DATABASE_URL is not set"
+            exit 1
+          fi
           render deploy --service <SERVICE_NAME>
